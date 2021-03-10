@@ -1,0 +1,7 @@
+#include<stdio.h>
+int main()
+{
+  char arr1[]="第一天打卡";
+  printf("%s\n",arr1);
+  return 0;
+}
