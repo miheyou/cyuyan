@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{  int line=0;
+   int input=0;
+  printf("加入跳动字节");
+  	  
+  while(line<2000)
+  {
+     printf("一行代码：%d\n",line);
+	 line++;
+  
+  }
+   scanf("%d",&input);
+
+   if(input==0)
+       printf("haooffer\n");
+   else
+	   printf("wuyong\n");
+
+  system("pause");
+  return 0;
+}
