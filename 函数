@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int ax(int x,int y)
+{
+	int z = x + y;
+
+
+}
+
+int main()
+{
+	int a, b,c;
+	scanf_s("%d%d",&a,&b);
+	c=ax(a,b);
+	printf("%d",c);
+	return 0;
+}
