@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+
+int main()
+{
+	int i = 1,
+		a = 1,
+		c=1,
+		d=0,
+		e=0,
+		x=1,
+		zo=0;
+	scanf_s("%d",&a);
+	for (x = 1; x <= a; x++)
+	{
+		for (d = 1; d <= x; d++)
+		{
+			for (i = 1; i <= d; i++)
+			{
+				c *= i;
+			}
+			e = e + c;
+			c = 1;
+		}
+		zo = zo + e;
+		e = 0;
+	}
+	printf("%d",zo);
+
+
+
+	return 0;
+}
