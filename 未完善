@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<string.h>
+#define  _CRT_SECURE_NO_WARNINGGS 
+
+int main()
+{
+	char arr[] = "hailucifer";
+	char arr1[] = "***************";
+	strcpy(arr1,arr);
+	printf("%s",arr1);
+	memset(arr,'*',7);
+	printf("%s",arr);
+	return 0;
+}
