@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+
+void jh(int* x, int* y)
+{
+	
+	if (*x < *y)
+	{
+		int ex = 0;
+		ex = *x;
+		*x = *y;
+		*y = ex;
+	}
+
+}
+int main()
+{
+	int a=0, b=0, c=0, d=0, e=0;
+	scanf_s("%d %d %d %d %d",&a,&b,&c,&d,&e);
+	jh(&a, &b);
+	jh(&a, &c); 
+	jh(&a, &d); 
+	jh(&a, &e);
+	jh(&b, &c);
+	jh(&b, &d);
+	jh(&b, &e);
+	jh(&c, &d);
+	jh(&c, &e);
+	jh(&d, &e);
+	printf("%d %d %d %d %d",a,b,c,d,e);
+
+
+	return 0;
+}
