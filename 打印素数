@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int ss(int i)
+{
+	int x = 2;
+	for (x = 2; x < i; x++)
+	{
+		if (i % x == 0)
+			return 0;
+	}
+	return 1;
+}
+
+int main()
+{
+	int a = 0;
+	for (a = 100; a <= 200; a++)
+	{
+		if (ss(a) == 1)
+		{
+			printf("%d ",a);
+		}
+	}
+
+	return 0;
+}
