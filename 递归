@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+void yc(int x)
+{
+	if (x > 9)
+	{
+	  
+	  yc(x/10);
+	}
+	printf("%d ", x%10);
+}
+
+
+int main()
+{
+	int a;
+	scanf_s("%d",&a);
+	yc(a);
+	
+
+	return 0;
+}
