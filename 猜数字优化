@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void menu()
+{
+	printf("*************************\n");
+	printf("**1.play***0.quit********\n");
+	printf("*************************\n");//游戏界面
+	printf("本游戏只有五条命！！");
+}
+void game()
+{
+	int b, c,i=0;
+	b = rand()/1000+1;//产生1~100的随机数字
+	do
+	{
+		printf("请猜一个数字：\n");
+		scanf_s("%d", &c);
+		if (c > b)
+		{
+			printf("大了\n");
+			i++;
+		}
+		else if (c < b)
+		{
+			printf("小了\n");	i++;
+		}
+		else
+		{
+			printf("恭喜你，猜对了\n");	i++;
+			break;
+		}
+		if ((c - b <=10)&&(c-b>=0))
+		{
+			printf("曾永兴是天才\n");	i++;
+		}
+		else if ((b - c <= 10)&&(b-c>=0))
+		{
+			printf("曾永兴好聪明\n");	i++;
+		}
+	} 	while (i <= 5);
+}
+int main()
+{
+	int a;
+	srand((unsigned int)time(NULL));//用时间戳来让随机数改变
+	do
+	{
+		menu();//进入菜单
+		printf("请选择：");
+		scanf_s("%d", &a);
+		switch (a)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			break;
+		default:
+			printf("请再次输入");
+
+		}
+	} while (a);//利用
+
+	return 0;
+}
