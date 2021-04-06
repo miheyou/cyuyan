@@ -1,0 +1,55 @@
+game.h
+#pragma once
+#define hang 3
+#define lie 3
+#include<stdio.h>
+#include<stdlib.h>
+void cshborad(char board[hang][lie],int hang,int lie)
+test.c
+#include "game.h"
+
+void cshboard(char board[hang][lie], int hang, int lie)
+{
+
+}
+game.c
+#include "game.h"
+
+void game()
+{
+	char borad[hang][lie] = {0};
+	cshborad();
+
+
+}
+
+void menu()
+{
+	printf("************************\n");
+	printf("**** 1.play  0.exit ****\n");
+	printf("************************\n");
+}
+
+int main()
+{
+	int input = 0;
+	do
+	{
+		menu();
+		printf("请选择:>\n");
+		scanf_s("%d",&input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			break;
+		default:
+			break;
+		}
+
+
+	} while (input);
+	return 0;
+}
