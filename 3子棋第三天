@@ -1,0 +1,12 @@
+void cshborad(char board[hang][lie], int hang, int lie)
+{
+	int i = 0,
+		j = 0;
+	for (i = 0; i <= hang - 1; i++)
+	{
+		for (j = 0; j <= lie - 1; j++)
+		{
+			board[i][j] = '0';
+		}
+	}
+}
