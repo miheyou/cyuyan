@@ -1,0 +1,86 @@
+#define hang 10
+#define lie 10
+#include<stdio.h>
+#include<stdlib.h>
+
+
+void menu()
+{
+	printf("*************************\n");
+	printf("*** 1.play*** 0.quit ****\n");
+	printf("*************************\n");
+
+}
+void cshboard(char board[hang][lie])
+{
+	int i = 0,
+		j = 0;
+	for (i = 0; i < hang; i++)
+	{
+		for (j = 0; j < lie; j++)
+		{
+			board[i][j] = ' ';
+		}
+	}
+}
+void dyboard(char board[hang][lie])
+{
+	int a = 0, b = 0;
+	for (a = 0; a < hang; a++)
+	{
+		for (b = 0; b < lie; b++)
+		{
+			printf(" %c ", board[a][b]);
+			if(b<lie-1)
+			printf("|");
+			
+		}
+		printf("\n");
+		if (a < hang - 1)
+		{
+			for (b = 0; b < lie; b++)
+			{
+				printf("---");
+				if (b < lie - 1)
+				printf("|");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void game()
+{
+	char board[hang][lie] = { 0 };
+	
+	cshboard(board);
+	dyboard(board);
+
+
+}
+
+int main()
+{
+	int input = 0;
+
+	do
+	{
+		menu();
+		printf("请选择>:");
+		scanf_s("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			break;
+		default:
+			break;
+		}
+
+	} while (input);
+
+
+	return 0;
+}
