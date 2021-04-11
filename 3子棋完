@@ -1,0 +1,213 @@
+#define hang 3
+#define lie 3
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void menu()
+{
+	printf("********************************\n");
+	printf("** 1.开始 ***** 0.退出 *********\n");
+	printf("********************************\n");
+}
+void cshboard(char board[hang][lie])
+{
+	int i = 0,
+		j = 0;
+	for (i = 0; i < hang; i++)
+	{
+		for (j = 0; j < lie; j++)
+		{
+			board[i][j] = ' ';
+		}
+	}
+}
+void dyboard(char board[hang][lie])
+{
+	int i = 0,
+		j = 0;
+	for (i = 0; i < hang; i++)
+	{
+		for (j = 0; j < lie; j++)
+		{
+			printf(" %c ",board[i][j]);
+			if (j < lie - 1)
+				printf("|");
+		}
+		printf("\n");
+		if (i < hang - 1)
+		{
+
+			for (j = 0; j < lie; j++)
+			{
+				printf("---");
+				if (j < lie - 1)
+					printf("|");
+			}
+		}
+		printf("\n");
+	}
+	
+}
+void playermove(char board[hang][lie])
+{
+	int x, y;
+	
+	while (1)
+	{
+		printf("请输入坐标\n");
+		scanf_s("%d%d", &x, &y);
+		if ((x<=hang)&&(x>0)&&(y<=lie)&&(y>0))
+		{
+			if (board[x - 1][y - 1] == ' ')
+			{
+				board[x - 1][y - 1] = '*';
+				dyboard(board);
+				break;
+			}
+			else
+			{
+				printf("该点已被占用，请重新输入\n");
+			}
+		}
+		else
+		{
+			printf("输入错误\n");
+		}
+	}
+}
+void commove(char board[hang][lie])
+{
+	int x, y;
+	
+	while (1)
+	{
+		x = rand() % hang;
+		y = rand() % lie;
+		if (board[x][y] == ' ')
+		{
+			board[x][y] = '#';
+			dyboard(board);
+			break;
+		}
+		/*else
+		{
+			printf("稍等\n");
+		}*/
+	}
+
+}
+char whowin(char board[hang][lie])
+{
+	int i, j;
+	for (i = 0; i < hang; i++)
+	{
+		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+		{
+			return board[i][0];
+		}
+	}
+	for (j = 0; j < lie; j++)
+	{
+		if(board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != ' ')
+		{
+			return board[0][j];
+		}
+	}
+	if(board[0][0]==board[1][1]&&board[1][1]==board[2][2]&&board[1][1]!=' ')
+	{
+		return board[1][1];
+	}
+	if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[1][1] != ' ')
+	{
+		return board[1][1];
+	}
+	if (isfull(board) == 1)
+	{
+		return 'j';
+	}
+	else
+		return 'p';
+
+}
+int isfull(char board[hang][lie])
+{
+	int a = 0, b = 0;
+	for (a = 0; a < hang; a++)
+	{
+		for (b = 0; b < lie; b++)
+		{
+			if (board[a][b] == ' ')
+			{
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
+void game()
+{
+	char jg;
+	char board [hang][lie] = { 0 };//定义数组作为棋盘
+	cshboard(board);//初始化数组
+	dyboard(board);//打印棋盘
+	srand((unsigned int)time(NULL));
+	while (1)
+	{
+		printf("玩家走\n");
+		playermove(board);
+		jg=whowin(board);
+		if (jg != 'j')
+		{
+			break;
+		}
+		printf("电脑走\n");
+		commove(board);
+		jg=whowin(board);
+		if (jg != 'j')
+		{
+			break;
+		}
+	}
+	if (jg == '*')
+	{
+		printf("玩家赢\n");
+	}
+	if (jg == '#')
+	{
+		printf("电脑赢\n");
+	}
+	if (jg == 'p')
+	{
+		printf("平局\n");
+	}
+}
+
+int main()
+{ 
+	int input;
+	
+	do
+	{
+		menu();
+		printf("请选择:>\n");
+		scanf_s("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			break;
+		default:
+			break;
+		}
+
+
+	} while (input);
+
+
+
+	return 0;
+}
