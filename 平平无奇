@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main()
+{
+	int n = 1,
+		c=0;
+	float a ,
+		x = 0;
+	for (n = 1; n <= 40; n++)
+	{
+		if (n % 2 == 0)
+		{
+			c = -n;
+		}
+		else
+		{
+			c = n;
+		}
+		x = 1.0 / c+x;
+
+	}
+	printf("%.5lf",x);
+
+	return 0;
+}
