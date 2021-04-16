@@ -1,0 +1,37 @@
+
+#include<stdio.h>
+
+int main()
+{
+	int num1 = 0, num2 = 0, num3 = 0, num4 = 0, num5 = 0;
+	char c;
+	while ((c = getchar()) != '\n')
+	{
+
+		if (48 <= ((c - '0') + 48) && ((c - '0') + 48) <= 57)
+		{
+			num1++;
+		}
+		else if (65 <= (c - '0' + 48) && (c - '0' + 48) <= 90)
+		{
+			num2++;
+		}
+		else if (97 <= (c - '0' + 48) && (c - '0' + 48) <= 122)
+		{
+			num3++;
+		}
+		else if ((c - '0' + 48) == 32)
+		{
+			num4++;
+		}
+		else  num5++;
+
+	}
+	printf("数字个数%d\n", num1);
+	printf("大写字母%d\n", num2);
+	printf("小写字母%d\n", num3);
+	printf("空格%d\n", num4);
+	printf("其他%d\n", num5);
+
+	return 0;
+}
