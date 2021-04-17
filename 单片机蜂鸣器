@@ -1,0 +1,15 @@
+#include "reg52.h"
+
+sbit beep=P1^5
+typedef unsigned int u16;
+void delay(u16 x)
+{
+	while (x--);
+
+}
+void main()
+{
+	beep = ~beep;
+	delay(50000);
+
+}
