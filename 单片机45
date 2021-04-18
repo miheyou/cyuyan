@@ -1,0 +1,14 @@
+#include "reg51.h"
+
+typedef unsigned int u16;
+void delay(u16 x)
+{
+  while(x--);
+
+}
+void main()
+{
+  
+
+
+}
