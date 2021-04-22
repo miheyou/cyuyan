@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main()
+{
+  int a=0;
+  char*p=&a;
+  int*at=&a;//指针变量不同
+
+  return 0;
+}
