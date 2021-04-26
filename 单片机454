@@ -1,0 +1,24 @@
+ u16 i=1;
+ for(i=1;i<3;i++)
+ {
+  switch(i)    
+   {
+     case 1:
+	 LSA=0;
+	 LSB=0;
+     LSC=1;
+	 P0=0x07;
+	 break;
+	 case 2:
+	 LSA=1;
+	 LSB=0;
+     LSC=1;
+	 P0=0x6d;
+	 break;
+   }
+   delay(100000);
+   P0=0x00;
+ }
+//	led=0xfe;
+//	led=0;
+}
