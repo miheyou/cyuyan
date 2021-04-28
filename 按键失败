@@ -1,0 +1,82 @@
+#include <reg51.h>
+
+typedef unsigned int u16;
+typedef char u8;
+
+sbit LSA=P2^2;
+sbit LSB=P2^3;
+sbit LSC=P2^4;
+
+sbit an=P3^1;
+
+u8 code sz[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f};
+
+void delay(u16 x) //控制时间
+{
+  while(x--);
+ 
+}
+
+void dl(u16 x)	 //控制第几个灯亮
+{
+  switch(x)
+  {
+  	  case 1:
+		LSA=0;LSB=0;LSC=0;
+		break;
+  	  case 2:
+		LSA=1;LSB=0;LSC=0;
+		break;
+	  case 3:
+		LSA=0;LSB=1;LSC=0;
+		break;
+	  case 4:
+		LSA=1;LSB=1;LSC=0;
+		break;
+	  case 5:
+		LSA=0;LSB=0;LSC=1;
+		break;
+	  case 6:
+		LSA=1;LSB=0;LSC=1;
+		break;
+  	  case 7:
+		LSA=0;LSB=1;LSC=1;
+		break;
+	  case 8:
+		LSA=1;LSB=1;LSC=1;
+		break;
+  }
+}
+void  xs(u16 x,u16 d,u16 t)
+{
+   dl(1);
+   P0=sz[x];
+   delay(100);
+
+   dl(2);
+   P0=sz[d];
+   delay(100);
+
+   dl(3);
+   P0=sz[t];
+   delay(100);
+
+
+}
+
+ void main()
+ {
+	 
+   u16 i=0,a=0,e=0;
+  
+  	 if(an==0)
+	 {
+	   if(an==1)
+		{
+		 i+=1;
+         
+	    }
+	 }
+    xs(i,a,e);
+ 
+ }
