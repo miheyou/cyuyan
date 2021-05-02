@@ -1,0 +1,74 @@
+//#include "reg51.h"
+// 
+//typedef unsigned int u16;
+//typedef char u8;
+//
+//sbit  k3=P3^2;
+//
+//#define led P2
+//
+//void delay(u16 x)
+//{
+//  while(x--);
+//
+//}
+//void cs()
+//{
+//   IT0=1;
+//   EX0=1;
+//   EA=1;
+//
+//}
+//void main()
+//{
+//   cs();
+//   
+//   
+//}
+//void zd() interrupt 0
+//{
+//    delay(1000);
+//	if(k3==0)
+//	{
+//	  
+//	   led=~led;
+//	}
+//}//中断led翻转
+
+//#include "reg51.h"
+//
+//typedef unsigned int u16;
+//typedef unsigned char u8;
+//
+//sbit led= P2^0;
+//
+//void csh()
+//{
+//   TMOD|=0x01;
+//   TH0=0xFC;
+//   TL0=0x18;
+//   ET0=1;
+//   EA=1;
+//   TR0=1;
+//}
+//
+//void main()
+//{
+//	csh();
+//	while(1);
+//}
+//void zd() interrupt 1
+//{
+//   static u16 i;
+//   TH0=0xFC;
+//   TL0=0x18;
+//   i++;
+//
+//   if(i==1000)
+//   {
+//       
+//   	   i=0;
+//	   led=~led;
+//   }
+//
+//}	 //计数器翻转
