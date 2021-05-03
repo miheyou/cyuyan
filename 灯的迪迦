@@ -1,0 +1,69 @@
+#include "reg51.h"
+
+typedef unsigned int u16;
+typedef char u8;
+
+sbit LSA=P2^2;
+sbit LSB=P2^3;
+sbit LSC=P2^4;
+
+u8 sz[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07};
+
+void smg(u16 x)
+{
+	switch(x)
+	{
+	  case 1:
+	  LSA=0;LSB=0;LSC=0;break;
+	  case 2:
+	  LSA=1;LSB=0;LSC=0;break;
+	  case 3:
+	  LSA=0;LSB=1;LSC=0;break;
+	  case 4:
+	  LSA=1;LSB=1;LSC=0;break;
+	  case 5:
+	  LSA=0;LSB=0;LSC=1;break;
+	  case 6:
+	  LSA=1;LSB=0;LSC=1;break;
+	  case 7:
+	  LSA=0;LSB=1;LSC=1;break;
+	  case 8:
+	  LSA=1;LSB=1;LSC=1;break;
+	}
+}
+void delay(u16 x)
+{
+  while(x--);
+}
+void xh1(u16*x,u16*y,u16*z)
+{
+		u16 c=*z,a=*x,b=*y;
+		 	smg(1);
+			P0=sz[c];
+			delay(1000);
+
+			smg(2);
+			P0=sz[b];
+			delay(1000);
+
+			smg(3);
+			P0=sz[a];
+			delay(1000);
+
+}
+void main()
+{
+  u16 a=0,b=0,c=0;
+  for(a=0;a<2;a++)
+  {
+  	 for(b=0;b<8;b++)
+	 {
+	    for(c=0;c<8;c++)
+		{
+		  delay(1000);
+	      xh1(&a,&b,&c);
+		}
+	 }
+  
+  }
+}
