@@ -1,0 +1,16 @@
+define Busy			0x80					//Ã¦ÐÅºÅ
+#define LCD_Data 	  P0	      //Êý¾Ý¿Ú¶¨Òå
+#define Write				0x00					//µÍµçÆ½Ð´Èë
+#define Read				0x01					//¸ßµçÆ½¶Á³ö
+#define Data				0x01					//¸ßµçÆ½Ñ¡ÔñÊý¾Ý
+#define Cmd				    0x00					//µÍµçÆ½Ñ¡ÔñÃüÁî
+
+#define Enable		    	0x00					//Ô¾±äµ½µÍµçÆ½Ê±Ö´ÐÐÃüÁî
+#define Disable		    	0x01    
+#define True				0x01
+#define False				0x00
+#define LCD_Init			0x38					//³õÊ¼»¯Ä£Ê½							
+#define LCD_DispCtr    		0x0C					//¿ªÏÔÊ¾¼°¹â±êÉèÖÃ
+#define LCD_CloseCtr		0x08					//¹ØÏÔÊ¾
+#define LCD_CLS        		0x01					//ÇåÆÁÄ»
+#define LCD_EnterSet   		0x06					//ÏÔÊ¾¹â±ê 
