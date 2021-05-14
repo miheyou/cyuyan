@@ -1,0 +1,64 @@
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+	int i=2,
+		j=2;
+	int sz[100];
+	for(i=2;i<101;i++)
+	{
+	  sz[i]=i;
+	  for(j=2;j<i;j++)
+	  {
+	    if(sz[i]%j==0)
+		{
+		  sz[i]=0;
+		}
+	  }
+	  if(sz[i]!=0)
+	  {
+	    printf("%d\n",sz[i]);
+	  }
+	  j=2;
+	}
+}
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+	int a=0,c,d=0;
+	int sz[]={1,3,5,8,57,87,98};
+	while(1)
+	{
+	 scanf("%d",&c);
+	    for(a=0;a<=1000;a++)
+	    {
+			d=0;
+	       if(c<sz[a])
+		   {
+		    sz[d]=c;
+			a+=1;
+		    while(sz[d]!=0)
+		    {
+			 d++;
+			 a++;
+			 sz[d]=sz[a];
+		    }
+			d=0;
+			while(sz[d]!=0)
+			{
+			 printf("%d ",sz[d]);
+			 d++;
+			}
+			break;
+		   }
+	    d++;	
+	    }
+		break;
+	}
+}
