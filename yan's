@@ -1,0 +1,9 @@
+//³õÊ¼»¯ÑÓ³Ùº¯Êý
+//SYSTICKµÄÊ±ÖÓ¹Ì¶¨ÎªHCLKÊ±ÖÓµÄ1/8
+//SystemCoreClock:ÏµÍ³Ê±ÖÓ  72Mhz
+void delay_init()	 
+{
+	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);	//Ñ¡ÔñÍâ²¿Ê±ÖÓ  HCLK/8
+	fac_us=SystemCoreClock/8000000;	//ÎªÏµÍ³Ê±ÖÓµÄ1/8  
+	fac_ms=(u16)fac_us*1000;//·ÇucosÏÂ,´ú±íÃ¿¸ömsÐèÒªµÄsystickÊ±ÖÓÊý   
+}		
