@@ -1,0 +1,15 @@
+void Display_Active_Power(u16 *powerp)
+{
+		u8 i;
+		u16 temp_powerp;
+		for(i=0;i<2;i++)
+			OLED_P16x16Ch(i*16,6,i);					//ÏÔÊ¾¡°µ±Ç°¡±
+		for(i=5;i<8;i++)
+			OLED_P16x16Ch((i-3)*16,6,i);				//ÏÔÊ¾¡°¹¦ÂÊ¡±
+		OLED_P8x16Str(4*16,6,":");					//ÏÔÊ¾¡°:¡±  
+
+		RN8209D_ReadPowerP(phase_A,powerp);
+		temp_powerp=*powerp;
+		OLED_Display_float_PowerA(72,6,temp_powerp);	
+
+}
