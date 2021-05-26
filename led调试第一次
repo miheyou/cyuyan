@@ -1,0 +1,14 @@
+#include "stm32f10x.h"
+
+void SystemInit()
+{
+
+}
+
+int main()
+{
+  RCC_APB2ENR|=1<<4;
+	GPIOC_CRL&=~(0x0f<<(4*0));
+	GPIOC_CRL|=(3<<(4*0));
+	GPIOC_BSRR=(1<<(16+0));
+}
